@@ -11,12 +11,17 @@ public class MainOrdini {
         Prodotto prodotto3 = new Prodotto("Caricatore",1,25.50);
         Prodotto prodotto4 = new Prodotto("Filo",1,10.0);
 
-        Ordine ordine1 = new Ordine(LocalDate.of(2024,2,2),new ArrayList<>(Arrays.asList(prodotto1,prodotto3,prodotto4)));
-        Ordine ordine2 = new Ordine(LocalDate.of(2024,2,1),new ArrayList<>(Arrays.asList(prodotto2,prodotto3,prodotto4)));
+        Ordine ordine1 = new Ordine(LocalDate.of(2024,2,2),new ArrayList<>(Arrays.asList(prodotto1,prodotto3,prodotto4)),StatoEnum.INLAVORAZIONE);
+        Ordine ordine2 = new Ordine(LocalDate.of(2024,2,1),new ArrayList<>(Arrays.asList(prodotto2,prodotto3,prodotto4)),StatoEnum.INLAVORAZIONE);
 
         SistemaOrdini sistemaOrdini = new SistemaOrdini();
         sistemaOrdini.addOrdine(ordine1);
         sistemaOrdini.addOrdine(ordine2);
+
+        System.out.println("visualizza l'elenco degli ordini");
+        sistemaOrdini.stampaElencoOrdini();
+
+        sistemaOrdini.consegnaOrdine(ordine1);
 
         System.out.println("visualizza l'elenco degli ordini");
         sistemaOrdini.stampaElencoOrdini();

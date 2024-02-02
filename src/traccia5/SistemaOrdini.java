@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class SistemaOrdini {
     private ArrayList<Ordine> ordineArrayList;
 
+
     public SistemaOrdini(){
         this.ordineArrayList = new ArrayList<>();
     }
@@ -27,5 +28,13 @@ public class SistemaOrdini {
             System.out.println(ordine.toString());
         }
     }
-
+    public void consegnaOrdine(Ordine ordine){
+        for(Ordine ordineVar : ordineArrayList){
+            if(ordineVar.equals(ordine)){
+                if(ordine.getStato().equals(StatoEnum.INLAVORAZIONE)){
+                    ordine.setStato(StatoEnum.CONSEGNATO);
+                }
+            }
+        }
+    }
 }

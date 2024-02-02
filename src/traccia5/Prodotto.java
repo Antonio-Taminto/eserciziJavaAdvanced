@@ -1,5 +1,7 @@
 package traccia5;
 
+import java.util.Objects;
+
 public class Prodotto {
     private String nome;
     private Integer quantita;
@@ -33,6 +35,19 @@ public class Prodotto {
 
     public void setPrezzo(Double prezzo) {
         this.prezzo = prezzo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Prodotto prodotto = (Prodotto) o;
+        return Objects.equals(nome, prodotto.nome) && Objects.equals(quantita, prodotto.quantita) && Objects.equals(prezzo, prodotto.prezzo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome, quantita, prezzo);
     }
 
     @Override
